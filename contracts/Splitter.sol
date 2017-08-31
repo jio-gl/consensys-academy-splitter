@@ -40,14 +40,17 @@ contract Splitter is Mortal {
                 // only our 3 friends can deposit
                 // make the contract a utility that can be used by David, Emma and anybody with an address
                 //if (msg.sender != alice && msg.sender != bob && msg.sender != carol) throw;
-
                 if (msg.sender != alice) {
-                   balances[msg.sender] = msg.value;
+                   balances[msg.sender] += msg.value;
                 } else {
-                  balances[bob] = msg.value / 2 ;
-                  balances[carol] = msg.value / 2 ;
+                  balances[bob] += msg.value / 2 ;
+                  balances[carol] += msg.value / 2 ;
                 }
-                Deposit(msg.sender, msg.value);
+		// if odd send one wei (change) to sender
+		if (msg.value % 2 == 1) {
+		   balances[msg.sender] += 1 ;
+		}
+		Deposit(msg.sender, msg.value);
                 return true;
         }
 

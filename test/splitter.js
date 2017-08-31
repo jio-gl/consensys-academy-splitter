@@ -1,11 +1,11 @@
 var sleep = require('sleep');
 
-var Toroid = artifacts.require("./Toroid.sol");
+var Splitter = artifacts.require("./Splitter.sol");
 
 
-contract('Toroid', function(accounts) {
+contract('Splitter', function(accounts) {
   it("should put 0 initial wei in the first account", function() {
-    return Toroid.deployed().then(function(instance) {
+    return Splitter.deployed().then(function(instance) {
       return instance.getBalanceOf.call(accounts[0]);
     }).then(function(balance) {
       assert.equal(balance.valueOf(), 0, "0 wasn't in the first account");
@@ -17,7 +17,7 @@ contract('Toroid', function(accounts) {
     var metaCoinBalance;
     var metaCoinEthBalance;
 
-    return Toroid.deployed().then(function(instance) {
+    return Splitter.deployed().then(function(instance) {
       meta = instance;
       return meta.getBalance.call(accounts[0]);
     }).then(function(outCoinBalance) {

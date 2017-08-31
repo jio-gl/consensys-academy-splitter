@@ -20,7 +20,7 @@ contract Mortal is Owned {
     }
 }
 
-contract Toroid is Mortal {
+contract Splitter is Mortal {
 
         address alice;
         address bob;

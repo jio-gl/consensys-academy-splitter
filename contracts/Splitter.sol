@@ -10,8 +10,8 @@ import "./ConvertLib.sol";
 // token, see: https://github.com/ConsenSys/Tokens. Cheers!
 
 contract Owned {
-    function Owned() { owner = msg.sender; }
     address owner;
+    function Owned() { owner = msg.sender; }
 }
 
 contract Mortal is Owned {

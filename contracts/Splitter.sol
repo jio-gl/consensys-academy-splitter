@@ -30,9 +30,6 @@ contract Splitter is Mortal {
                  alice = a;
                  bob = b;
                  carol = c;
-                 balances[a] = 0;
-                 balances[b] = 0;
-                 balances[c] = 0;
         }
 
         mapping (address => uint) balances;
